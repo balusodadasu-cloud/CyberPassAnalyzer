@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Password Strength Analyzer</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Password Strength Analyzer</h1>
+
+    <form method="POST">
+
+        <input type="password"
+               name="password"
+               placeholder="Enter Password">
+
+        <button type="submit">
+            Check
+        </button>
+
+    </form>
+
+    <form method="POST">
+
+        <button type="submit"
+                name="generate">
+            Generate Secure Password
+        </button>
+
+    </form>
+
+    <h3 style="color: cyan;">
+        {{ generated_password }}
+    </h3>
+
+    <div class="strength-bar">
+
+        <div class="strength-fill"
+             style="width: {{ width }};
+                    background: {{ color }};">
+        </div>
+
+    </div>
+
+    <h2 style="color: {{ color }};">
+        {{ result }}
+    </h2>
+
+    <h3>SHA-256 Hash:</h3>
+
+    <p class="hash">
+        {{ hashed_password }}
+    </p>
+
+</div>
+
+</body>
+
+</html>
